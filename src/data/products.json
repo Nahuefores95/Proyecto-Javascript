@@ -3,7 +3,7 @@
         "id": 1,
         "name": "Llavero Quilmes",
         "price": 500,
-        "category":"Llavero",
+        "category": "Llavero",
         "description": "Llavero de escudo de Quilmes",
         "image": "llavero quilmes.jpg"
     },
@@ -98,7 +98,7 @@
     {
         "id": 13,
         "name": "Picador Algun Rayo",
-        "description":"Picador con logo de Algún Rayo, sin dientes, 45mm de ancho",
+        "description": "Picador con logo de Algún Rayo, sin dientes, 45mm de ancho",
         "price": 1500,
         "image": "Rayo.jpeg",
         "category": "Picadores"
@@ -110,5 +110,5 @@
         "price": 3000,
         "image": "bobesponja.jpg",
         "category": "Otros"
-    } 
+    }
 ]
