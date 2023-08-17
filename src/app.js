@@ -6,6 +6,7 @@ const products = require('./routes/products');
 //const ordenar = require('./routes/ordenar');
 //const users = require('./routes/users');
 const connectDb = require ('./database/connect');
+const cors = require('cors');
 
 //Conexión a la Base de datos
 connectDb();
@@ -14,6 +15,7 @@ connectDb();
 app.use(express.static(path.resolve(__dirname,'../public')));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+app.use(cors());
 
 /* Rutas */
 app.use('/api/products',products);

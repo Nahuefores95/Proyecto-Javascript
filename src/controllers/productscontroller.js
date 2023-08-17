@@ -19,7 +19,11 @@ const controller = {
     },
     update: async (req, res) => {
         try {
-            const product = await Product.findByIdAndUpdate(req.params.id, req.body);
+            console.log(req.params.id);
+            console.log(req.body);
+            const product = await Product.findByIdAndUpdate({_id: req.params.id}, req.body, { //Con new: true, muestra el producto luego del update. pregunta = porque desde body -> form no me lo toma el update ?? 
+                new: true
+            });
             return res.status(200).json(product);
         }catch(error){
             return res.status(404).json({ error: 'Elemento no encontrado' });
