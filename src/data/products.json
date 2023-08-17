@@ -1,6 +1,5 @@
 [
     {
-        "id": 1,
         "name": "Llavero Quilmes",
         "price": 500,
         "category": "Llavero",
@@ -8,7 +7,6 @@
         "image": "llavero quilmes.jpg"
     },
     {
-        "id": 2,
         "name": "Llavero Rolling",
         "price": 500,
         "category": "Llavero",
@@ -16,7 +14,6 @@
         "image": "llavero rolling.jpg"
     },
     {
-        "id": 3,
         "name": "Llavero Skay",
         "price": 500,
         "category": "Llavero",
@@ -24,7 +21,6 @@
         "image": "llavero skay.jpg"
     },
     {
-        "id": 4,
         "name": "Llavero PR",
         "description": "Llavero logo Patricio Rey",
         "price": 500,
@@ -32,7 +28,6 @@
         "category": "Llavero"
     },
     {
-        "id": 5,
         "name": "Llavero Homero",
         "description": "Llavero Homero arbusto",
         "price": 600,
@@ -40,7 +35,6 @@
         "category": "Llavero"
     },
     {
-        "id": 6,
         "name": "Mate Ricardo Fort",
         "description": "Mate busto Ricardo Fort, pintado con acrilico",
         "price": 2500,
@@ -48,7 +42,6 @@
         "category": "Mates"
     },
     {
-        "id": 7,
         "name": "Mate Club Unión",
         "description": "Mate de Club Unión de Ezpeleta en forma de pelota de fútbol",
         "price": 2000,
@@ -56,7 +49,6 @@
         "category": "Mates"
     },
     {
-        "id": 8,
         "name": "Mate Stitch",
         "description": "Mate del personaje Stitch",
         "price": 2500,
@@ -64,7 +56,6 @@
         "category": "Mates"
     },
     {
-        "id": 9,
         "name": "Velador Luna",
         "description": "Velador en forma de Luna, cuenta con luz led de 5W",
         "price": 4000,
@@ -72,7 +63,6 @@
         "category": "Veladores"
     },
     {
-        "id": 10,
         "name": "Velador Dragón",
         "description": "Velador en forma de Dragón escupiendo fuego, cuenta con luz led de 3W",
         "price": 5000,
@@ -80,7 +70,6 @@
         "category": "Veladores"
     },
     {
-        "id": 11,
         "name": "Picador Oreo",
         "description": "Picador Oreo, con dientes, 45mm de ancho",
         "price": 1500,
@@ -88,7 +77,6 @@
         "category": "Picadores"
     },
     {
-        "id": 12,
         "name": "Picador La Renga",
         "description": "Picador con logo de La Renga, sin dientes, 45mm de ancho",
         "price": 1500,
@@ -96,7 +84,6 @@
         "category": "Picadores"
     },
     {
-        "id": 13,
         "name": "Picador Algun Rayo",
         "description": "Picador con logo de Algún Rayo, sin dientes, 45mm de ancho",
         "price": 1500,
@@ -104,7 +91,6 @@
         "category": "Picadores"
     },
     {
-        "id": 14,
         "name": "Set Bob Esponja",
         "description": "Set de portavirulana y esponja de Bob Esponja y Patricio, resistente al agua",
         "price": 3000,

@@ -1,73 +1,75 @@
-const { json } = require('body-parser');
-const fs = require('fs');
-const path = require('path');
-const { stringify } = require('querystring');
-
-/* Obtener el JSON */
-const rutaAlJson = path.resolve(__dirname, '../data/products.json');
-const dataJSON = fs.readFileSync(rutaAlJson, { encoding: 'utf8' }); //Lee el archivo JSON products (simil base de datos)
-const products = JSON.parse(dataJSON); //Convierte un JSON en un objeto
-
+const Product = require('../database/models/product');
 
 const controller = {
-    crear: (req, res) => {  //Metodo para crear un nuevo archivo en el JSON products via POST
-        console.log("Crear -- Post");
-        let product = {};
-        console.log(product);
-        console.log(req.body); 
-        if (!req.body.name || !req.body.price || !req.body.category || !req.body.image){ //Validación de datos, estos que figuran no pueden estar vacios
-            return res.json({msg: "Faltan completar datos obligatorios"});
+    crear: async (req, res) => {
+        try {
+            let product = {
+                name: req.body.name,
+                price: req.body.price,
+                subcatecory : req.body.subcatecory,
+                category: req.body.category,
+                description: req.body.description,
+                image: req.file.filename
+            }
+            const productDatabase = await Product.create(product);
+            res.status(201).json(productDatabase);
+        } catch(error) {
+            res.status(500).json({message: 'Internal server error'});
         }
-        else {
-            product.id = products.length + 1; //Se que esta mal ero para usarlo por ahora
-            product.name = req.body.name;//Añado las propiedades cargadas en el body del POST en el object product
-            product.price = req.body.price;
-            product.category = req.body.category;
-            product.image = req.body.image;
-            if (req.body.description == " ") product.description = req.body.name;
-            else product.description = req.body.description;
-            console.log(product);
-            products.push(product);//pusheo lo que hay en el objeto product en products (JSON pero que esta en forma de objeto)
-            let productsJson = JSON.stringify(products,null,4); //Convierte un objeto en un JSON, y lo acomoda de la manera que le indicamos, en este caso 4 espacios (los puntitos)
-            fs.writeFileSync(rutaAlJson,productsJson,{encoding: 'utf-8'});//Escribo en el JSON, le paso la ruta, y el encoding 
+    },
+    update: async (req, res) => {
+        try {
+            const product = await Product.findByIdAndUpdate(req.params.id, req.body);
+            return res.status(200).json(product);
+        }catch(error){
+            return res.status(404).json({ error: 'Elemento no encontrado' });
+        }
+        
+    },
+    listar: async (req, res) => {
+        const products = await Product.find({});
+        res.status(200).json(products);
+    },
+    detalle: async (req, res) => {
+        try {
+            const detail = await Product.findById(req.params.id);
+            res.status(200).json(detail);
+        }catch(error){
+            return res.status(404).json({ error: 'Elemento no encontrado' });
+        }  
+    },
+    category: async (req, res) =>{
+        console.log('category');
+        const products = await Product.find({}).sort({category:1});
+        res.status(200).json(products);
+    },
+    categoryOnce: async (req, res) =>{
+        console.log('category once');
+        console.log(req.params.category);
+        const products = await Product.find({category:req.params.category});
+        if(products.length == 0) return res.status(404).json({ error: 'Categoria no encontrada' });
+        else res.status(200).json(products);
+    },
+    lower: async (req, res) =>{
+        console.log('lower price');
+        const products = await Product.find({}).sort({price:1});
+        res.status(200).json(products);
+    },
+    higher: async (req, res) =>{
+        console.log('higher price');
+        const products = await Product.find({}).sort({price:-1});
+        res.status(200).json(products);
+    },
+    seeker: async (req, res) => {
+        try {
+            const detail = await Product.find({name:{ $regex: req.query.name , $options: 'i' }}); //con la expresión regex busco todos aquellos objetos que en el name obtengan el valor de la query
+            console.log(detail);
+            if(detail.length == 0) return res.status(404).json({ error: 'No se han encontrado elementos que contengan esa busqueda' });
+            res.status(200).json(detail);
 
-            res.json("EXITO");
-        } 
-    }, 
-    all: (req, res) => { //Metodo para listar todos los productos
-        res.json(products);
-        console.log("ALL");
-    },
-    one: (req, res) => { //Metodo para listar un producto asignado por id
-        let id = req.params.id;
-        let product = products.find(producto => producto.id == id); //Se usa el metodo find para encontrar el id que se requiere
-        res.json(product);
-        console.log("ID");
-    },
-    category: (req, res) => { //Metodo para listar las categorias
-        console.log("Category");
-        const valoresUnicos = new Set(); //Se utiliza un set para encontrar los valores unicos o que no se repiten en este caso de la propiedad category del array de objetos products
-        products.forEach(objeto => {
-            valoresUnicos.add(objeto.category);
-        });
-        console.log(valoresUnicos);
-        res.json(JSON.stringify(Array.from(valoresUnicos),null,4)); //Metodo para responder un JSON de valores diferentes de categorias
-    },
-    categories: (req, res) => { //Metodo para listar los objetos que tienen la categoria requerida
-        let category = req.params.category;
-        let product = products.filter(producto => producto.category == category);
-        res.json(product);
-        console.log("Categories");
-    },
-    mayor: (req, res) => { //Metodo para listar los objetos de mayor a menor precio
-        let mayor = products.sort((ida,idb)=>idb.price - ida.price);
-        res.json(mayor);
-        console.log("Mayor");
-    },
-    menor: (req, res) => {  //Metodo para listar los objetos de menor a mayor precio
-        let menor = products.sort((ida,idb)=>ida.price - idb.price);
-        res.json(menor);
-        console.log("Menor");
+        }catch(error){
+            return res.status(404).json({ error: 'Elemento no encontrado' });
+        }  
     }
 }
 
