@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
 .header{
     position: sticky ;
     background-color: black;
@@ -5,13 +10,18 @@
     width: 100%;
     justify-content: center;
     align-items: center;
+    margin: auto;
+    height: 120px;
 }
 
 .header1{
     width: 15%;
     vertical-align: middle;
     text-align: center;
-
+    border-radius: 5em;
+    max-height: 120px;
+    max-width: 120px;
+    margin: auto;
 }
 
 .header2{
@@ -32,10 +42,11 @@
 }
 
 .hnav:hover{
-
+    border-radius: 2em;
     background-color: blue;
     text-decoration-line: underline;
 }
+
 .product{
     width: 65%;
     vertical-align: middle;
@@ -52,24 +63,63 @@
     vertical-align: middle;
     text-align: center;
 }
+
 .clase1{
     border-top: 0;
-    background-color: gray;
     background-image: url("../../img/fondoimp.jpg");
     background-repeat: no-repeat;
+    background-size: cover;
     width: 100%;
     height: 750px;
-    margin: auto;
-    display: flex;
-    align-items: center;
+    transition: all 400ms ease-out;
+    text-align: center;
+    margin: 0;
 }
 
-.clase1-h1{
+.clase1 h1{
     font-size: 50px;
     font-family: cursive;
+    color: #000;
     margin: auto;
+    visibility: visible;
+    transition: all 400ms ease-out;
+}
 
+.clase1 h3{
+    color: #fff;
+    font-size: 30px;
+    font-family: cursive;
+    margin: auto;
+    display: none; /*Se usa display:none en vez de visibility:hidden para que no aparezc*/
+    transition: all 400ms ease-out;
+}
 
+.clase1 p{
+    color: #fff;
+    font-size: 25px;
+    font-family: cursive;
+    margin: auto;
+    display: none;
+    transition: all 400ms ease-out;
+}
+
+.clase1:hover{
+    flex-direction: column;
+    flex-wrap: nowrap;
+    opacity: 0.8;
+}
+
+.clase1:hover > h1{
+    color: #fff;
+}
+
+.clase1:hover > h3{
+    display: contents;
+}
+
+.clase1:hover > p{
+    margin-top: -200px;
+    display: contents;
 }
 
 .clase2{
@@ -125,41 +175,186 @@
     text-align: center;
 }
 
-.clase4{
-    position: relative;
-    background-color:whitesmoke;
-    display: inline-flex;
-    flex-wrap:nowrap;
+.containerGridOne{
     width: 100%;
+    margin: auto;
+    overflow: hidden;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,auto);
     justify-content: center;
-    align-items: center;
+    /*grid-row-gap: 2%; */
 }
 
-.clase4_1{
-    width:33.33%;
-    height:auto;
-    display:flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
+.gridContainerOne, .gridContainerFour, .gridContainerFive{
+    text-align: center;
+    margin: auto; 
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.5s, transform 0.5s;
+     
 }
 
-.clase4_2{
-    width:100%;
-    height: 40em;
+.show {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+.gridContainerTwo{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    background-color: #302f30;
+    height: 480px;
+    text-align: center;
+
+}
+.gridContainerThree{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    background-color: #302f30;
+    height: 480px;
+    text-align: center;
 }
 
-.clase4_3{
+.gridContainerSix{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    background-color: #302f30;
+    height: 480px;
+    text-align: center;
+
+}
+
+.containerGridOne h2 {
+    font-size: xx-large;
+    font-family: cursive;
+
+}
+
+.containerGridOne p {
+    font-size: x-large;
+    font-family: cursive;
+
+}
+
+.containerGridOne button {
+    font-size: x-large;
+    font-family: cursive;
+    width: 6em;
+    height: 2em;
+    margin: 1em 1em 0;
+    color:#fff;
+    background-color: rgb(0, 0, 0);
+    border-radius: 1em;
+
+}
+
+
+.containerGrid{
     width: 100%;
-    height: 20em;
+    background-color: #302f30;;
+}
+
+.tituloGrid{
+    font-size: xx-large;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: whitesmoke;
+    text-align: center;
+}
+
+.gridContainer{
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,auto);
+    justify-content: center;
+    grid-row-gap: 2%; 
+}
+
+.gridItem{
+    max-height: auto;
+    max-width: auto;
+    text-align: center;
+    margin-bottom: 2em;
+    
+}
+
+.gridImage{
+    border-radius: 2em;
+    width: 80%;
+    height: auto;
+    
+}
+
+.gridImage1{
+    max-width: 400px;
+    max-height: 480px;
+}
+
+.productItem{
+    margin: 2em;
+    max-height: auto;
+    max-width: auto;
+    text-align: center;
+    border: 2px solid #000; /* 2px de ancho, sólido y de color negro */
+    padding: 20px; /* Agrega un espacio interno para separar el contenido del borde */
+    border-radius: 2em;
+    
+}
+
+.productImage{
+    border-radius: 2em;
+    width: 80%;
+    height: auto;
+}
+
+.productImage1{
+    max-width: 400px;
+    max-height: 480px;
+}
+
+.productItem h2{
+    font-size: 200%;
+    font-weight: 500;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border-radius: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.productItem h3{
+    font-size: 100%;
+    font-weight: 500;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border-radius: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.productItem h4{
+    font-size: 200%;
+    font-weight: 500;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border-radius: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.gridH4{
+    font-size: 200%;
+    font-weight: 500;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border-radius: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 .clase6{
     position: relative;
     margin-top: -20px;
-    background-color:rgba(187, 184, 184, 0.212);
     text-align: center;
     font-size: xx-large;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: fantasy;
 
 }
 
@@ -172,20 +367,80 @@
     margin-top: -40px;
 }
 
-.clase5_1{
-    width:25%;
-    display:flex;
-    flex-direction: column;
-    margin-left: 25%;
-}
+.carrousel {
+    margin: auto;
+    width: 50%;
+    max-width: 120em;
+    padding: 2em;
+    color: var(--negro);
+    transition: all 0.4s ease;
+    border-radius: 1em;
+    background-color: var(--blanco);
+    box-shadow: 1em 1em 2em var(--sombra-ppal), -1em -1em 2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+    overflow: hidden;
+    justify-content: center;
+  }
+  
+  .carrousel .grande {
+    width: 400%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--negro);
+    transition: all 0.4s ease;
+    border-radius: 1em;
+    background-color: var(--blanco);
+    box-shadow: 1em 1em 2em var(--sombra-ppal), -1em -1em 2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+    padding: 2em;
+    transition: all 0.5s ease;
+    transform: translateX(0%);
+  }
+  
+  .carrousel .img {
+    /*width: calc( 100% / 4 - 2em);*/
+    width: 100%;
+    min-height: 10vh;
+    color: var(--negro);
+    transition: all 0.4s ease;
+    border-radius: 1em;
+    background-color: var(--blanco);
+    box-shadow: 1em 1em 2em var(--sombra-ppal), -1em -1em 2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+  }
+  
+  .carrousel .puntos {
+    margin: auto;
+    width: 100%;
+    margin: 1em 0 0;
+    padding: 0.4em;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .carrousel .puntoDer {
+    width: 2em;
+    height: 2em;
+    margin: 1em 1em 0;
+    background-color: lightskyblue;
+    transition: all 0.4s ease;
+    border-radius: 1em;
+    box-shadow: 0.6em 0.6em 1.2em var(--sombra-ppal), -0.6em -0.6em 1.2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+  }
 
-.clase5_2{
-    width:25%;
-    height: 100em;
-    display:flex;
-    flex-direction: column;
-    margin-right: 25%;
-}
+  .carrousel .puntoIzq {
+    width: 2em;
+    height: 2em;
+    margin: 1em 1em 0;
+    background-color: lightsalmon;
+    transition: all 0.4s ease;
+    border-radius: 1em;
+    box-shadow: 0.6em 0.6em 1.2em var(--sombra-ppal), -0.6em -0.6em 1.2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+  }
+  
+
+
 .footer{
     position: relative;
     background-color: silver;
@@ -197,9 +452,12 @@
 }
 
 .footer1{
-    width: 20%;
+    max-width: 150px;
+    max-height: 150px;
     vertical-align:middle;
     text-align: center;
+    border-radius: 1.2em;
+
 }
 .footer2{
     width: 50%;
@@ -251,11 +509,81 @@
 
 }
 
-.product-box{
-    height: 600px;
+.gridImage:hover{
+    transition: transform .5s;
+    transform: scale(1.5);
 }
 
-.product-box1{
-    width:100%;
-    height:80%;
+.divUsers{
+    background-image: url(../../img/impresion3d.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1000px;
+    width: 100%;
+    text-align: center;
+    
+}
+
+.formUsers{  
+    background-color: #f2f2f2;
+    width: 20%;
+    margin: auto;
+    height: auto;
+    border-radius: 2em;
+}
+
+.formUsers input{
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: #000;
+    border-radius: 0.3em;
+    cursor: pointer; /* Cambia el tipo de cursor */
+    font-family: cursive;
+}
+
+.formUsers h1{
+    font-size: xx-large;
+    font-family: cursive;
+}
+
+.buttonForm{
+    font-size: large;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: cursive;
+    border-radius: 0.3em;
+    color: #fff;
+    background-color: #000;
+}
+
+.creaCuenta{
+    display: none;
+}
+
+.creaCuenta1{
+    display:contents;
+}
+
+.buttonActive{
+    font-size: medium;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: cursive;
+    border-radius: 0.3em;
+    background-color:rgba(80, 82, 82, 0.966);
+    color: #fff;
+}
+
+.buttonDisactive{
+    font-size: medium;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: cursive;
+    border-radius: 0.3em;
+    background-color:#000;
+    color: #fff;
 }

@@ -4,24 +4,68 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="./css/style.css">
+    <script src="../js/formRegistro.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Registro</title>
 </head>
 <body>
+    <header class="header">
+        <img class="header1" src="../img/Logo.jpeg" alt="Logo Tienda">
+        <div class="header2">
+            <nav>
+                <a class="hnav" href="index.html">Empresa</a>
+                <a class="hnav" href="products.html">Productos</a>
+                <a class="hnav" href="registro.html">Registro</a>
+                <a class="hnav" href="users.html">Mi Cuenta</a>
+            </nav>
+        </div>
+    </header> 
 
-    <form action=""> 
-        <label>Nombre: </label>
-        <input type="text">
-        <label>DNI: </label>
-        <input type="number">
-        <label>Asunto: </label>
-        <input type="text" placeholder="Ejemplo: Llaveros">
-        <label>Email: </label>
-        <input type="email">
-        <label>Telefono: </label>
-        <input type="tel" placeholder="Usar n° de area"><br>
-        <textarea placeholder="Dejanos tu comentario"></textarea>
-        <button type="submit">Enviar datos</button>
-    </form>
+    <div class="divUsers">
+        <br>
+        <br>
+        <br>
+        <form class="formUsers" action=""> 
+            <h1>Registrate</h1><br>
+            <i class="fa fa-user-circle creaCuenta"></i>
+            <input type="text" placeholder="Nombre:"><br>
+            <i class="fa fa-user-circle creaCuenta"></i>
+            <input type="text" placeholder="Apellido:"><br>
+            <i class="fa fa-envelope"></i>
+            <input type="email" placeholder="Email:"><br>
+            <i class="fa fa-lock"></i>
+            <input type="text" placeholder="Contraseña:"><br>
+            <i class="fa fa-lock"></i>
+            <input type="text" placeholder="Confirmar contraseña:"><br>
+            <i class="fa fa-mobile"></i>
+            <input type="tel" placeholder="Telefono"><br>
+            <button type="submit" class="buttonForm">Crear cuenta</button><br>
+            <button type="button" id="signUp" class="buttonActive">Registro</button>
+            <button type="button" id="signIn" class="buttonDisactive">Login</button>
+        </form>
+    </div>
+    
+    <footer class="footer">
+        <img class="footer1" src="../img/Logo.jpeg" alt="Logo Tienda">
+        <div class="footer2">
+            <div class="footer4" id="iconofb">
+                <a title="Logo facebook" href="https://www.facebook.com/NahuePsico/"><img class="iconos"
+                        src="../img/icono fb.jpg" alt="Logo facebook"></a>
+            </div>
+            <div class="footer4" id="iconoinst">
+                <a title="Logo instagram" href="https://www.instagram.com/chimi3d/"><img class="iconos"
+                        src="../img/icono insta.jpg" alt="Logo instagram"></a>
+            </div>
+            <div class="footer4" id="iconolink">
+                <a href="https://www.linkedin.com/in/gustavo-nahuel-forestieri-271702170/"><img class="iconos"
+                        src="../img/icono linkedin.png" alt="Logo linkedin"></a>
+            </div>
+        </div>
+        <div class="footer3">
+            <span>CHIMI 3D</span><br><span>by</span><br><span>Nahuel Forestieri & Leandro Gross</span>
+        </div>
 
+    </footer>
 </body>
 </html>
