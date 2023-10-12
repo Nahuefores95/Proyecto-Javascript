@@ -14,7 +14,7 @@ gridImages.forEach((imagen) => {
 
 async function callfetch(){
     try{
-        await fetch('http://localhost:3000/api/products/listar');
+        await fetch('http://localhost:3001/api/products/listar');
         const productImages = document.querySelectorAll('.productImage');
         productImages.forEach((imagen) => {
             console.log(imagen);

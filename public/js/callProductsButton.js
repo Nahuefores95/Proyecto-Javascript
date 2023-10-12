@@ -28,7 +28,7 @@ gridProduct.forEach(() => addEventListener("click", function () {
             `<h2>HOLAAAAA</h2>
             <div class="col-sm-12 col-md-6 col-lg-4">   
                 <div class="productItem">
-                    <img class="productImage" src="http://localhost:3000/img/${product.image}" alt="imagen del producto">
+                    <img class="productImage" src="http://localhost:3001/img/${product.image}" alt="imagen del producto">
                     <h2>${product.name}</h2>
                     <h4>$${product.price}</h4>
                     <h3>${product.category}</h3>

@@ -6,7 +6,7 @@ const controller = {
             let product = {
                 name: req.body.name,
                 price: req.body.price,
-                subcatecory : req.body.subcatecory,
+                subcatecory : req.body.subcategory,
                 category: req.body.category,
                 description: req.body.description,
                 image: req.file.filename
@@ -68,8 +68,12 @@ const controller = {
         try {
             const detail = await Product.find({name:{ $regex: req.query.name , $options: 'i' }}); //con la expresión regex busco todos aquellos objetos que en el name obtengan el valor de la query
             console.log(detail);
-            if(detail.length == 0) return res.status(404).json({ error: 'No se han encontrado elementos que contengan esa busqueda' });
-            res.status(200).json(detail);
+            console.log(detail.length);
+            if(detail.length == 0){
+                console.log("no se encontraron elementos");
+                return res.status(404).json({ error: 'No se han encontrado elementos que contengan esa busqueda' });
+            } 
+            else res.status(200).json(detail);
 
         }catch(error){
             return res.status(404).json({ error: 'Elemento no encontrado' });

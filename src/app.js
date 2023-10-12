@@ -24,4 +24,4 @@ app.use('/api/products',products);
 //app.use('/api/ordenar',ordenar);
 
 //Levantamos el servidor
-app.listen(3000, () => console.log(`server corriendo en el puerto http://localhost:3000/`));
+app.listen(3001, () => console.log(`server corriendo en el puerto http://localhost:3001/`));
